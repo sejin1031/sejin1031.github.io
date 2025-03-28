@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+  <div id="wrap" style="position:relative;width:100%;height:500px;"></div>
+  <script>
+    new daum.Postcode({
+      oncomplete: function(data) {
+        // 데이터를 부모 창으로 전송
+        window.parent.postMessage(data, '*');
+        window.close();
+      }
+    }).embed(document.getElementById("wrap"));
+  </script>
+</body>
+</html>
